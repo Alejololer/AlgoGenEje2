@@ -1,0 +1,12 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\Core i7\\Documents\\Libraries\\jgap_3.6.3_jar\\jgap.jar"
+    ],
+    "cSpell.language": "en,es-ES",
+    "cSpell.words": [
+        "Funcion"
+    ]
+}
