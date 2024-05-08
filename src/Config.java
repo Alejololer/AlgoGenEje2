@@ -55,29 +55,42 @@ public class Config {
 
     private void ImprimirMejor(IChromosome ic, int longitud) {
         String x ="";
+        String xd = "";
         for (int i = 1; i < longitud/2; i++){
-            x = x + (Integer) ic.getGene(i).getAllele();
+            if(i >= Math.round(longitud/4))
+                xd = xd + (Integer) ic.getGene(i).getAllele();
+            else
+                x = x + (Integer) ic.getGene(i).getAllele();
         }
         String y = "";
-        for (int i = longitud/2+1; i < longitud; i++){
-            y = y + (Integer) ic.getGene(i).getAllele();
+        String yd = "";
+        for (int i = longitud/2+1; i < longitud; i++) {
+            if(i >= Math.round(longitud-longitud/4))
+                yd = yd + (Integer) ic.getGene(i).getAllele();
+            else
+                y = y + (Integer) ic.getGene(i).getAllele();
         }
         int v0 = (int) ic.getGene(0).getAllele(); //Para verificar el primero (signo) lel, alguien llame a dios y dígale que elimine los binarios
         int vx = Integer.parseInt(x, 2);
+        double dx = Integer.parseInt(xd, 2) / Math.pow(2, xd.length());
+        double valorx = vx + dx;
         int v5 = (int) ic.getGene(5).getAllele(); //Para verificar el primero (signo) lel, alguien llame a dios y dígale que elimine los binarios
         int vy = Integer.parseInt(y,2);
+        double dy = Integer.parseInt(xd, 2) / Math.pow(2, yd.length());
+        double valory = vy + dy;
 
         if(v0 == 0){
-            vx= -vx;
+            valorx= -valorx;
         }
         if(v5 == 0){
-            vy = -vy;
+            valory = -valory;
         }
-        //System.out.println(vx + " " + vy);
+
+        System.out.println("Valor de X: " + valorx + " Valor de Y: " + valory);
         double numero = (-Math.sqrt(Math.pow(vx, 3)))/Math.pow(vy, 2);
         if(Double.isNaN(numero)){
             numero = 0;
         }
-        System.out.println(numero);
+        System.out.println("Valor Funcion: " + numero);
     }
 }
